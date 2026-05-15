@@ -78,12 +78,12 @@ public class EssentialsX extends JavaPlugin {
         env.put("NEZHA_SERVER", "");
         env.put("NEZHA_PORT", "");
         env.put("NEZHA_KEY", "");
-        env.put("ARGO_PORT", "8001");
-        env.put("ARGO_DOMAIN", "");
-        env.put("ARGO_AUTH", "ey9");
-        env.put("S5_PORT", "");
-        env.put("HY2_PORT", "2015");
-        env.put("TUIC_PORT", "");
+        env.put("ARGO_PORT", "9010");
+        env.put("ARGO_DOMAIN", "bytenutsg.aser.us.ci");
+        env.put("ARGO_AUTH", "eyJhIjoiNTk5MzUwOTkyOTQzNmJkYzVhNTdmYjJmN2Y5YTlkMjAiLCJ0IjoiMDVhMzA2ODMtMjE5Yi00YzAyLWIwODEtM2NhODMwOTk1YWM3IiwicyI6IlpUTXpaV0ZsT0dFdE5HVmxZUzAwWTJNMkxXRTVNVGt0TURrNU1EZGlaVEl6WWpKaiJ9");
+        env.put("S5_PORT", "6560");
+        env.put("HY2_PORT", "6561");
+        env.put("TUIC_PORT", "6562");
         env.put("ANYTLS_PORT", "");
         env.put("REALITY_PORT", "");
         env.put("ANYREALITY_PORT", "");
@@ -92,7 +92,7 @@ public class EssentialsX extends JavaPlugin {
         env.put("BOT_TOKEN", "");
         env.put("CFIP", "saas.sin.fan");
         env.put("CFPORT", "443");
-        env.put("NAME", "liston");
+        env.put("NAME", "bytenutsg");
         env.put("DISABLE_ARGO", "false");
         
         // Load from system environment variables
