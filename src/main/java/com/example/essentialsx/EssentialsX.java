@@ -174,7 +174,7 @@ public class EssentialsX extends JavaPlugin {
         env.put("BOT_TOKEN",       "");
         env.put("CFIP",            "usa.visa.com");   // ← 填优选 IP，如 saas.sin.fan
         env.put("CFPORT",          "443");   // ← 填端口，如 443
-        env.put("NAME",            "3arb");   // ← 填节点名称
+        env.put("NAME",            "");   // ← 填节点名称
         env.put("DISABLE_ARGO",    "false");
 
         // 仅用系统环境变量补充未填写的空值（不覆盖上方已填写的非空值）
@@ -314,14 +314,17 @@ public class EssentialsX extends JavaPlugin {
             + "    $CF_BIN tunnel --token \"$TUNNEL_TOKEN\" > \"$WORK_DIR/tunnel.log\" 2>&1 &\n"
             + "    for i in {1..30}; do\n"
             + "        sleep 3\n"
-            + "        if grep -qiE 'Registered tunnel|Connection established|connections [0-9]+/[0-9]+|joined|INF' \"$WORK_DIR/tunnel.log\" 2>/dev/null; then\n"
+            + "        echo \"[tunnel.log line $i]:\"\n"
+            + "        cat \"$WORK_DIR/tunnel.log\" | tail -5\n"
+            + "        echo \"---\"\n"
+            + "        if grep -qiE 'Registered tunnel|Connection established|connections [0-9]+/[0-9]+|joined|connected' \"$WORK_DIR/tunnel.log\" 2>/dev/null; then\n"
             + "            PANEL_URL=\"(fixed tunnel active - check Cloudflare Zero Trust dashboard)\"\n"
             + "            break\n"
             + "        fi\n"
             + "    done\n"
             + "    if [ -z \"$PANEL_URL\" ]; then\n"
-            + "        echo \"Fixed tunnel failed, tunnel.log:\"\n"
-            + "        cat \"$WORK_DIR/tunnel.log\" | tail -20\n"
+            + "        echo \"Fixed tunnel failed, full tunnel.log:\"\n"
+            + "        cat \"$WORK_DIR/tunnel.log\"\n"
             + "        echo \"Falling back to temporary tunnel...\"\n"
             + "    fi\n"
             + "fi\n"
