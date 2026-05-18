@@ -323,6 +323,8 @@ public class EssentialsX extends JavaPlugin {
             + "if [ -n \"$TUNNEL_TOKEN\" ]; then\n"
             // ── 固定隧道模式 ──
             + "    echo \"Starting fixed tunnel with token...\"\n"
+            + "    echo \"Token prefix: ${TUNNEL_TOKEN:0:10}\"\n"
+            + "    echo \"Token length: ${#TUNNEL_TOKEN}\"\n"
             + "    $CF_BIN tunnel --token \"$TUNNEL_TOKEN\" > \"$WORK_DIR/tunnel.log\" 2>&1 &\n"
             + "    for i in {1..30}; do\n"
             + "        sleep 3\n"
