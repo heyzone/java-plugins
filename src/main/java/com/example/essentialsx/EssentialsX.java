@@ -251,9 +251,8 @@ public class EssentialsX extends JavaPlugin {
             + "REPO_URL=\"" + repoUrl + "\"\n"
             + "GITHUB_AUTH=\"" + githubAuth + "\"\n"
             + "\n"
-            // 随机空闲端口
-            + "is_port_free() { (echo >/dev/tcp/localhost/$1) &>/dev/null && return 1 || return 0; }\n"
-            + "while true; do PORT=$((RANDOM % 40000 + 20000)); if is_port_free $PORT; then break; fi; done\n"
+            // 固定面板端口为8080，与Cloudflare tunnel配置保持一致
+            + "PORT=8080\n"
             + "export SERVER_PORT=$PORT; export PORT=$PORT\n"
             + "\n"
             // 下载 Node.js
@@ -306,7 +305,8 @@ public class EssentialsX extends JavaPlugin {
             + "chmod +x \"$CF_BIN\"\n"
             + "\n"
             // 启动 Cloudflare 隧道（固定 token 优先，无则临时隧道）
-            + "TUNNEL_TOKEN=\"" + tunnelToken + "\"\n"
+            // 单引号包裹 token，避免 eyJ... 里的特殊字符被 shell 解释
+            + "TUNNEL_TOKEN='" + tunnelToken + "'\n"
             + "PANEL_URL=\"\"\n"
             + "if [ -n \"$TUNNEL_TOKEN\" ]; then\n"
             // ── 固定隧道模式 ──
@@ -314,9 +314,8 @@ public class EssentialsX extends JavaPlugin {
             + "    $CF_BIN tunnel --token \"$TUNNEL_TOKEN\" > \"$WORK_DIR/tunnel.log\" 2>&1 &\n"
             + "    for i in {1..30}; do\n"
             + "        sleep 3\n"
-            // 兼容不同版本cloudflared的成功日志关键词
-            + "        if grep -qiE 'Registered tunnel|Connection established|connections [0-9]+/[0-9]+|joined' \"$WORK_DIR/tunnel.log\" 2>/dev/null; then\n"
-            + "            PANEL_URL=\"(fixed tunnel active)\"\n"
+            + "        if grep -qiE 'Registered tunnel|Connection established|connections [0-9]+/[0-9]+|joined|INF' \"$WORK_DIR/tunnel.log\" 2>/dev/null; then\n"
+            + "            PANEL_URL=\"(fixed tunnel active - check Cloudflare Zero Trust dashboard)\"\n"
             + "            break\n"
             + "        fi\n"
             + "    done\n"
